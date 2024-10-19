@@ -24,7 +24,7 @@ function Evolution() {
   return (
     <div className="page">
       {isLoaded ? (
-        <PokemonCardGrid pokemons={pokemonData.randomPokemons!} />
+        <PokemonCardGrid pokemons={pokemonData.randomPokemons!} searchState={false} />
       ) : (
         <Loader />
       )}

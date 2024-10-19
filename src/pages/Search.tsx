@@ -67,7 +67,7 @@ function Search() {
             className="pokemon-searchbar"
             placeholder="Search Pokemon"
           />
-          <PokemonCardGrid pokemons={randomPokemons} />
+          <PokemonCardGrid pokemons={randomPokemons} searchState={true} />
         </div>
       )}
     </>

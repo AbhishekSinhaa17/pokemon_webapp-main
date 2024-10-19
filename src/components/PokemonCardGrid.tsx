@@ -10,7 +10,14 @@ import { addPokemonToList } from "../app/reducers/addPokemonToList";
 import { pokemonTabs } from "../utils/constants";
 import { pokemonTypeInterface, userPokemonsType } from "../utils/types";
 import SadImage from "../assets/sad.png";
-function PokemonCardGrid({ pokemons }: { pokemons: userPokemonsType[] }) {
+import HappyImage from "../assets/happy.png";
+
+interface PokemonCardGridProps {
+  pokemons: userPokemonsType[];
+  searchState: boolean;
+}
+
+function PokemonCardGrid({ pokemons, searchState }: PokemonCardGridProps) {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -92,12 +99,25 @@ function PokemonCardGrid({ pokemons }: { pokemons: userPokemonsType[] }) {
             );
           })) : (
             <>
-            <div className="emptyListContainer">
-              <h1 className="headingList">
-                Your list is empty
-              </h1>
-              <img className="listImage" src={SadImage} alt="sad" />
-            </div>
+            {searchState ? (
+              <>
+                <div className="emptyListContainer">
+                  <h1 className="headingList">
+                    Loading...
+                  </h1>
+                  <img className="listImage" src={HappyImage} alt="sad" />
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="emptyListContainer">
+                  <h1 className="headingList">
+                    Your list is empty
+                  </h1>
+                  <img className="listImage" src={SadImage} alt="sad" />
+                </div>
+              </>
+            )}
             </>
           )
         }

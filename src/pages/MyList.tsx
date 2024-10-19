@@ -14,7 +14,7 @@ function MyList() {
   }, [userInfo, dispatch]);
   return (
     <div className="list">
-      {userInfo ? <PokemonCardGrid pokemons={userPokemons} /> : <Login />}
+      {userInfo ? <PokemonCardGrid pokemons={userPokemons} searchState={false} /> : <Login />}
     </div>
   );
 }
